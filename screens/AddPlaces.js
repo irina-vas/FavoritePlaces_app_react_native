@@ -1,10 +1,14 @@
-import { Text, View } from "react-native"
+import { PlaceForm } from "../components/Places/PlaceForm";
 
 
-export const AddPlaces = () => {
+export const AddPlaces = ({ navigation }) => {
+  const createPlaceHandler = (place) => {
+    navigation.navigate('AllPlaces', {
+      place: place
+    });
+  }
+  
   return (
-    <View>
-      <Text>AddPlaces</Text>
-    </View>
+    <PlaceForm onCreatePlace={createPlaceHandler} />
   )
-}
+};
